@@ -12,7 +12,8 @@ User.hasMany(Subscription, {
 Plan.hasMany(Subscription, { 
     foreignKey: {
         allowNull: false,
-        defaultValue: "FREE"
+        defaultValue: "FREE",
+        name: "plan_id"
     }
 });
 

@@ -24,7 +24,7 @@ router.post("/", async (req,res)=>{
             let valid_date = new Date(new Date(start_date).getTime()+(Validity*24*60*60*1000));
             await Subscription.create({
                 user_name: user_name,
-                PlanId: plan_id,
+                plan_id: plan_id,
                 start_date: start_date,
                 valid_till: valid_date
             })    
@@ -57,7 +57,7 @@ router.get("/:username", async(req, res)=>{
                 where: {
                     user_name: username
                 },
-                attributes: ["PlanId", "start_date", "valid_till"]
+                attributes: ["plan_id", "start_date", "valid_till"]
             })
             if(result.length==0){
                 throw "No records found."
@@ -87,7 +87,7 @@ router.get("/:username/:date", async (req, res)=>{
                         [Op.like]: new Date(date)
                     }
                 },
-                attributes: ["PlanId", "valid_till"]
+                attributes: ["plan_id", "valid_till"]
                 })
                 result = {...result.dataValues};
                 result["days_left"] = (new Date(result["valid_till"]).getTime() - new Date().getTime())/(24*60*60*1000);
