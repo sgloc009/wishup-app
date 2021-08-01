@@ -4,6 +4,12 @@ Content-Type: application/json
 
 {
     "user_name": "jay",
-    "plan_id": "LITE_1M",
+    "plan_id": "POO",
     "start_date": "2020-03-03"
 }
+
+###
+GET http://localhost:3000/subscription/poo
+
+###
+GET http://localhost:3000/subscription/poo/2020-03-03
