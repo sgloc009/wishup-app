@@ -1,0 +1,9 @@
+#
+POST http://localhost:3000/subscription
+Content-Type: application/json
+
+{
+    "user_name": "jay",
+    "plan_id": "LITE_1M",
+    "start_date": "2020-03-03"
+}
