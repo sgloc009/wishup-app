@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "user_name": "jay",
     "plan_id": "LITE_1M",
-    "start_date": "2020-03-03"
+    "start_date": "1"
 }
 
 ###

@@ -5,8 +5,7 @@ const {PORT, HOSTNAME} = require("dotenv").config().parsed;
 const expressWinston = require("express-winston");
 require("winston-daily-rotate-file");
 
-const userRoute = require("./routes/usersRoute");
-const subscriptionRoute = require("./routes/subscriptionRoute");
+let { userRoute, subscriptionRoute } = require("./routes");
 
 const app = express();
 const transport = new winston.transports.DailyRotateFile({

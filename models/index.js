@@ -1,7 +1,16 @@
 
-let User =  require("./userModel");
-let Plan = require("./planModel");
-let Subscription = require("./subscriptionModel")
+const User =  require("./userModel");
+const Plan = require("./planModel");
+const Subscription = require("./subscriptionModel");
+const sequelize = require("./dbConnection");
+const EventEmitter = require("events");
+
+let dbIsActiveTopic = new EventEmitter();
+
+sequelize.afterBulkSync("Toggle DB Active", ()=>{
+    dbIsActiveTopic.emit("dbactive");
+})
+
 
 User.hasMany(Subscription, { 
     foreignKey: {
@@ -20,5 +29,7 @@ Plan.hasMany(Subscription, {
 module.exports = {
     User,
     Plan,
-    Subscription
+    Subscription,
+    dbIsActiveTopic
+    
 }
